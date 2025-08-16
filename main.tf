@@ -23,9 +23,9 @@ resource "aws_instance" "terraform_config" {
 
 resource "aws_s3_bucket" "terraform_state" {
 
-    bucket = "terraform-state-bucket"    
+    bucket = "terraform-state-bucket-${random_id.unique_id.hex}"    
     tags = {
-        Name = "primary-terraform-state-bucket-${random_id.unique_id.hex}"
+        Name = "primary-terraform-state-bucket"
         Environment = "Infrastructure"
     }    
 }
